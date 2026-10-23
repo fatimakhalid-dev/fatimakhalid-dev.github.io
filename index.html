@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Fatima Khalid · Computer vision for biotech tools</title>
+  <meta
+    name="description"
+    content="Fatima Khalid works on computer vision for biotech tools, combining computing science and biochemistry to build for medical and city problems."
+  >
+
+  <meta property="og:title" content="Fatima Khalid · Computer vision for biotech tools">
+  <meta
+    property="og:description"
+    content="Computer vision for biotech tools, with a focus on medical and city problems."
+  >
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fatimakhalid_27069.github.io">
+
+  <link rel="canonical" href="https://fatimakhalid_27069.github.io">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --bg: #f7f7f2;
+      --text: #101010;
+      --muted: #62625d;
+      --line: #d8d8d0;
+      --accent: #0057ff;
+      --accent-dark: #003fc0;
+      --card: #ffffff;
+      --mark: #fff200;
+      --max-width: 1080px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--max-width));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 28px 0;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      min-height: 72vh;
+      display: flex;
+      align-items: center;
+      padding: 70px 0 100px;
+    }
+
+    .hero-inner {
+      max-width: 900px;
+    }
+
+    .eyebrow {
+      margin: 0 0 22px;
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Space Grotesk", sans-serif;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    h1 {
+      max-width: 950px;
+      margin: 0;
+      font-size: clamp(3.7rem, 10vw, 8rem);
+      font-weight: 700;
+    }
+
+    .one-liner {
+      max-width: 680px;
+      margin: 32px 0;
+      font-size: clamp(1.3rem, 3vw, 2rem);
+      line-height: 1.3;
+    }
+
+    .cta {
+      display: inline-block;
+      padding: 15px 22px;
+      border-radius: 8px;
+      background: var(--accent);
+      color: white;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 150ms ease, background 150ms ease;
+    }
+
+    .cta:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+    }
+
+    .now {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 23px 0;
+      font-size: 1rem;
+    }
+
+    .now strong {
+      margin-right: 8px;
+      font-family: "Space Grotesk", sans-serif;
+    }
+
+    section {
+      padding: 100px 0;
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: clamp(2.3rem, 5vw, 4rem);
+    }
+
+    .section-heading p {
+      max-width: 600px;
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .project {
+      display: flex;
+      flex-direction: column;
+      min-height: 430px;
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--card);
+    }
+
+    .project-number {
+      color: var(--accent);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .project h3 {
+      margin: 24px 0 30px;
+      font-size: 1.8rem;
+    }
+
+    .project dl {
+      margin: 0;
+    }
+
+    .project dt {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .project dd {
+      margin: 5px 0 0;
+    }
+
+    .project-link {
+      margin-top: auto;
+      padding-top: 28px;
+      color: var(--accent);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .project-link:hover {
+      text-decoration: underline;
+    }
+
+    mark {
+      padding: 2px 4px;
+      background: var(--mark);
+      color: #000;
+    }
+
+    .work-list {
+      border-top: 1px solid var(--line);
+    }
+
+    .work-item {
+      display: grid;
+      grid-template-columns: 130px 1fr auto;
+      gap: 30px;
+      align-items: baseline;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .work-date {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .work-title {
+      font-weight: 600;
+    }
+
+    .work-link {
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .work-link:hover {
+      text-decoration: underline;
+    }
+
+    .about {
+      border-top: 1px solid var(--line);
+    }
+
+    .about-copy {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(1.25rem, 2.8vw, 1.8rem);
+      line-height: 1.45;
+    }
+
+    .contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 28px;
+      margin-top: 40px;
+    }
+
+    .contacts a {
+      color: var(--accent);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .contacts a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      padding: 35px 0 50px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 720px) {
+      .container {
+        width: min(calc(100% - 28px), var(--max-width));
+      }
+
+      header {
+        padding: 20px 0;
+      }
+
+      .nav-links {
+        gap: 14px;
+      }
+
+      .nav-links a:first-child {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 85px 0 90px;
+      }
+
+      h1 {
+        font-size: clamp(3.4rem, 17vw, 5.5rem);
+      }
+
+      .one-liner {
+        margin: 25px 0 30px;
+      }
+
+      section {
+        padding: 75px 0;
+      }
+
+      .section-heading {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-bottom: 35px;
+      }
+
+      .featured-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project {
+        min-height: auto;
+      }
+
+      .work-item {
+        grid-template-columns: 1fr;
+        gap: 5px;
+      }
+
+      .work-link {
+        margin-top: 5px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav aria-label="Main navigation">
+        <a class="logo" href="#top">FK</a>
+
+        <div class="nav-links">
+          <a href="#featured">Featured</a>
+          <a href="#work">Work</a>
+          <a href="#about">About</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-inner">
+          <p class="eyebrow">Computing Science × Biochemistry</p>
+
+          <h1>Fatima Khalid</h1>
+
+          <p class="one-liner">
+            I work on computer vision for biotech tools, combining computing science
+            and biochemistry to build for medical and city problems.
+          </p>
+
+          <a
+            class="cta"
+            href="mailto:fkhalid3@ualberta.ca"
+          >
+            Talk to me about a role →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <div class="now">
+      <div class="container">
+        <strong>Now — October 2026:</strong>
+        Working in a University of Alberta surgery and engineering research lab
+        while taking five classes and contributing to a University of Alberta
+        automation project.
+      </div>
+    </div>
+
+    <section id="featured">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Featured</h2>
+          <p>
+            Work at the intersection of computing, research, and systems that
+            people need to use in practice.
+          </p>
+        </div>
+
+        <div class="featured-grid">
+          <article class="project">
+            <span class="project-number">01</span>
+
+            <h3>Surgery &amp; Engineering Research</h3>
+
+            <dl>
+              <dt>Problem</dt>
+              <dd>
+                <mark>[What specific medical or surgical problem is your research solving?]</mark>
+              </dd>
+
+              <dt>Decision</dt>
+              <dd>
+                <mark>[What did you decide to build, test, or investigate, and why?]</mark>
+              </dd>
+
+              <dt>Result</dt>
+              <dd>
+                <mark>[What have you completed, learned, or demonstrated so far?]</mark>
+              </dd>
+            </dl>
+          </article>
+
+          <article class="project">
+            <span class="project-number">02</span>
+
+            <h3>University Automation Project</h3>
+
+            <dl>
+              <dt>Problem</dt>
+              <dd>
+                Working with the University of Alberta IT department on an
+                automation project.
+                <mark>[What manual process or problem needed to be fixed?]</mark>
+              </dd>
+
+              <dt>Decision</dt>
+              <dd>
+                <mark>[What did you automate, and why did you choose that approach?]</mark>
+              </dd>
+
+              <dt>Result</dt>
+              <dd>
+                <mark>[What changed because of the automation?]</mark>
+              </dd>
+            </dl>
+          </article>
+
+          <article class="project">
+            <span class="project-number">03</span>
+
+            <h3>Computer Vision for Biotech</h3>
+
+            <dl>
+              <dt>Problem</dt>
+              <dd>
+                <mark>[What biotech or medical problem are you applying computer vision to?]</mark>
+              </dd>
+
+              <dt>Decision</dt>
+              <dd>
+                <mark>[What computer vision approach did you choose and why?]</mark>
+              </dd>
+
+              <dt>Result</dt>
+              <dd>
+                <mark>[What did you build or find?]</mark>
+              </dd>
+            </dl>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Work</h2>
+          <p>
+            A running record of research, technical work, and projects.
+          </p>
+        </div>
+
+        <div class="work-list">
+
+          <!-- ADD NEW WORK HERE: copy one item, paste it at the top, edit it -->
+
+          <div class="work-item">
+            <span class="work-date">2026</span>
+            <span class="work-title">
+              Research lab — University of Alberta Surgery &amp; Engineering
+            </span>
+          </div>
+
+          <div class="work-item">
+            <span class="work-date">2026</span>
+            <span class="work-title">
+              Automation project — University of Alberta IT
+            </span>
+          </div>
+
+          <div class="work-item">
+            <span class="work-date"><mark>[Date]</mark></span>
+            <span class="work-title">
+              <mark>[Add your next project, research contribution, or technical build]</mark>
+            </span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container">
+        <div class="section-heading">
+          <h2>About</h2>
+        </div>
+
+        <p class="about-copy">
+          I'm a Computing Science and Biochemistry student interested in where
+          software meets medical and city problems. My work currently spans
+          computer vision, surgical research, and automation at the University
+          of Alberta. I like problems where code has to work outside a classroom
+          and for the people who actually use it.
+        </p>
+
+        <div class="contacts">
+          <a href="mailto:fkhalid3@ualberta.ca">
+            Email
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/fatima-khalid-ualberta2007?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+            rel="me"
+          >
+            LinkedIn
+          </a>
+
+          <a
+            href="https://github.com/fatimakhalid_27069"
+            rel="me"
+          >
+            GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      Fatima Khalid · Edmonton, Alberta
+    </div>
+  </footer>
+</body>
+        </html>
